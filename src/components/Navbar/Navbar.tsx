@@ -78,7 +78,7 @@ export default function Navbar(props: { searchText: (text: string) => void }) {
                     isClosable: true,
                   })
                 }
-                display={{ base: "none", lg: "flex" }}
+                display={{ base: "none", lg: "flex", md:'flex' }}
               >
                 <chakra.img src={bellLogo} />
               </Button>
