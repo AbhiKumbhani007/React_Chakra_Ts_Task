@@ -11,6 +11,7 @@ import webAppLogo from "../icons/dashboard.svg";
 import dataStoreLogo from "../icons/db.svg";
 
 import clusterLogo from "../icons/cluster.svg";
+import { buttonPrimary } from "../constants/colors";
 
 interface RadioButtonGrpProps {
   options: string[];
@@ -31,7 +32,7 @@ function RadioCard(props: any) {
         {...checkbox}
         cursor="pointer"
         _checked={{
-          color: "#9837CA",
+          color: buttonPrimary,
         }}
         px={1}
         fontSize={{ base: "xs", md: "md" }}

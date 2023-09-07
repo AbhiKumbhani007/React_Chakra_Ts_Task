@@ -1,13 +1,11 @@
-import {
-  Box,
-  ChakraProvider,
-  Text,
-  VStack,
-  theme
-} from "@chakra-ui/react";
+import { Box, ChakraProvider, theme } from "@chakra-ui/react";
 import { useState } from "react";
-import { Logo } from "./Logo";
+import { Route, MemoryRouter as Router, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
+import NavbarBottomTab from "./components/Navbar/NavbarBottom";
+import Dashboard from "./pages/dashboard";
+import Footer from "./components/Footer";
+import { scrollbarStyle } from "./utility/commonStyles";
 
 export const App = () => {
   const [searchText, setSearchText] = useState("");
@@ -16,24 +14,30 @@ export const App = () => {
 
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Navbar searchText={handleSearchTextChange} />
-        <Box display={"flex"} flexDirection={"column"} alignItems={"center"}>
-          <Logo h="20vmin" pointerEvents="none" />
-          <Text fontSize={{base:"xs", lg:'lg', md:'md', sm:"sm"}} pt={4} maxWidth={"80%"} >
-            Write Something in <b> Search Box</b>, and Click on <b>Bell Icon</b>{" "}
-            to See Toast
-          </Text>
-
-          {searchText && (
-            <Box display={"flex"}>
-              <Text fontWeight={"semibold"} px={2}>
-                Search Text:
-              </Text>
-              <Text> {searchText}</Text>
-            </Box>
-          )}
+      <Box
+        textAlign="center"
+        fontSize="xl"
+        display={"flex"}
+        flexDirection={"column"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+        w={"full"}
+      >
+        <Box
+          maxWidth={{ xl: "1920px" }}
+          marginLeft={{ xl: "auto" }}
+          marginRight={{ xl: "auto" }}
+          width={"100%"}
+        >
+          <Navbar searchText={handleSearchTextChange} />
+          <NavbarBottomTab searchText={handleSearchTextChange} />
+          <Router>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+            </Routes>
+          </Router>
         </Box>
+        <Footer />
       </Box>
     </ChakraProvider>
   );

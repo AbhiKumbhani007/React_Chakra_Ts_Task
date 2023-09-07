@@ -1,6 +1,7 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { Box, Button, Text } from "@chakra-ui/react";
 import { TiFlash } from "react-icons/ti";
+import { buttonPrimary, buttonSecondary } from "../../constants/colors";
 
 function NavbarButtons() {
   return (
@@ -10,11 +11,11 @@ function NavbarButtons() {
         borderRadius={10}
         marginRight={2}
         fontWeight={600}
-        color={"#9837CA"}
-        bg={"#F6E4FF"}
+        color={buttonPrimary}
+        bg={buttonSecondary}
         size={{ base: "sm", md: "md" }}
         _hover={{
-          bg: "#F6E4FF",
+          bg: buttonSecondary,
         }}
       >
         <Box
@@ -25,14 +26,14 @@ function NavbarButtons() {
         >
           <TiFlash size={24} />
           <Text>350</Text>
-          <Text
-            fontSize={"sm"}
-            display={"flex"}
-            wordBreak={"normal"}
-            paddingLeft={2}
-          >
-            Credits Left
-          </Text>
+          <Box display={"flex"} flexDirection={"column"} pl={2} py={1}>
+            <Text fontSize={"12"} display={"flex"} wordBreak={"normal"}>
+              Credits
+            </Text>
+            <Text fontSize={"12"} display={"flex"} wordBreak={"normal"}>
+              Left
+            </Text>
+          </Box>
         </Box>
       </Button>
 
@@ -42,10 +43,10 @@ function NavbarButtons() {
         className="px-[10px]"
         fontWeight={600}
         color={"white"}
-        bg={"#9837CA"}
+        bg={buttonPrimary}
         size={{ base: "sm", md: "md" }}
         _hover={{
-          bg: "#9837CA",
+          bg: buttonPrimary,
         }}
         rightIcon={<ChevronDownIcon />}
       >

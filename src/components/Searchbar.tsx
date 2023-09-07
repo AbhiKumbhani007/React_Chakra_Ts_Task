@@ -1,6 +1,7 @@
 import { Input, InputGroup, InputRightElement, chakra } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import searchLogo from "../icons/search_logo.svg";
+import { inputBg } from "../constants/colors";
 
 function Searchbar(props: { onChange: (text: string) => void}) {
   const { onChange } = props;
@@ -34,7 +35,7 @@ function Searchbar(props: { onChange: (text: string) => void}) {
         type={"text"}
         placeholder="Quick Search"
         value={searchText}
-        bg={"white"}
+        bg={inputBg}
         onChange={(e) => handleSearchTextChange(e.target.value)}
       />
       <InputRightElement width="4.5rem">
