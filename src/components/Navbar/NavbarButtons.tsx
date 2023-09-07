@@ -4,7 +4,7 @@ import { TiFlash } from "react-icons/ti";
 
 function NavbarButtons() {
   return (
-    <Box>
+    <Box display={"flex"}>
       <Button
         fontSize={"md"}
         borderRadius={10}
