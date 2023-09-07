@@ -10,12 +10,13 @@ import {
   MenuList,
   Text,
   chakra,
-  useToast
+  useToast,
 } from "@chakra-ui/react";
-import { AiOutlinePoweroff } from "react-icons/ai";
-import { FiSettings } from "react-icons/fi";
-import { MdAccountCircle, MdPayment } from "react-icons/md";
+import { MdAccountCircle } from "react-icons/md";
 import bellLogo from "../../icons/bell.svg";
+import billingLogo from "../../icons/billing.svg";
+import logoutLogo from "../../icons/logout.svg";
+import settingsLogo from "../../icons/settings.svg";
 import Searchbar from "../Searchbar";
 import NavbarButtons from "./NavbarButtons";
 
@@ -87,7 +88,7 @@ export default function Navbar(props: { searchText: (text: string) => void }) {
                   }
                 />
               </MenuButton>
-              <MenuList fontSize={"16"}>
+              <MenuList fontSize={"16"} width={270}>
                 <MenuItem
                   display={"flex"}
                   alignItems={"center"}
@@ -97,7 +98,16 @@ export default function Navbar(props: { searchText: (text: string) => void }) {
                   }}
                 >
                   <MdAccountCircle size={22} />
-                  <Text pl={2}>Account</Text>
+                  <Box
+                    display={"flex"}
+                    flexDirection={"column"}
+                    justifyContent={"center"}
+                  >
+                    <Text pl={2}>Account</Text>
+                    <Text fontSize={"13"} color={'gray.600'} pl={2}>
+                      abhi1234kumbhani@gmail.com
+                    </Text>
+                  </Box>
                 </MenuItem>
                 <MenuItem
                   display={"flex"}
@@ -107,7 +117,7 @@ export default function Navbar(props: { searchText: (text: string) => void }) {
                     fontWeight: "medium",
                   }}
                 >
-                  <FiSettings size={22} />
+                  <chakra.img src={settingsLogo} w={5} h={5} />
                   <Text pl={2}>Settings</Text>
                 </MenuItem>
                 <MenuItem
@@ -118,7 +128,7 @@ export default function Navbar(props: { searchText: (text: string) => void }) {
                     fontWeight: "medium",
                   }}
                 >
-                  <MdPayment size={22} />
+                  <chakra.img src={billingLogo} w={5} h={5} />
                   <Text pl={2}>Billings</Text>
                 </MenuItem>
                 <MenuItem
@@ -129,7 +139,7 @@ export default function Navbar(props: { searchText: (text: string) => void }) {
                     fontWeight: "medium",
                   }}
                 >
-                  <AiOutlinePoweroff size={22} />
+                  <chakra.img src={logoutLogo} w={5} h={5} />
                   <Text pl={2}>Sign Out</Text>
                 </MenuItem>
               </MenuList>
